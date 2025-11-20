@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SVG Maker</title>
+
+		<style>
+			body
+			{
+				font-family: arial;
+				font-size: 14px;
+			}
+
+			.panel
+			{
+				outline: 2px solid rgb(200, 100, 0);
+				width: 90%;
+				padding: 1em;
+				margin: 1em auto 0 auto;
+			}
+		</style>
+
+		<script>
+			
+		</script>
+
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	</head>
+	<body>
+		<div class="panel">
+			Width: <input type="number" id="txtWidth" value="100" />
+			<br />
+			Height: <input type="number" id="txtHeight" value="100" />
+			<br />
+			Code: <textarea cols="300" rows="10" id="txtCode"></textarea>
+			<br />
+			<button id="btnPreview">Preview</button>
+		</div>
+
+		<div class="panel">
+			<svg id="svgResult" />
+		</div>
+	</body>
+</html>
