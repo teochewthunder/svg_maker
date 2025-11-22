@@ -19,11 +19,29 @@
 			}
 		</style>
 
-		<script>
-			
-		</script>
-
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+		<script>
+			function renderSVG()
+			{
+				var width = $("#txtWidth").val();
+				var height = $("#txtHeight").val();
+				var content = $("#txtCode").val();
+				console.log(content)
+
+				$("#svgResult").attr("width", width);
+				$("#svgResult").attr("height", height);
+				$("#svgResult").html($("#svgResult").html("")).html(content);
+			}
+
+			$(document).ready(function() {
+				renderSVG();
+
+				$("#btnPreview").click(function() {
+					renderSVG();
+				});
+			});
+		</script>
 	</head>
 	<body>
 		<div class="panel">
@@ -31,13 +49,13 @@
 			<br />
 			Height: <input type="number" id="txtHeight" value="100" />
 			<br />
-			Code: <textarea cols="300" rows="10" id="txtCode"></textarea>
+			Code: <textarea cols="100" rows="10" id="txtCode"></textarea>
 			<br />
 			<button id="btnPreview">Preview</button>
 		</div>
 
 		<div class="panel">
-			<svg id="svgResult" />
+			<svg id="svgResult" style="outline: 1px solid rgb(0, 0, 0)" />
 		</div>
 	</body>
 </html>
