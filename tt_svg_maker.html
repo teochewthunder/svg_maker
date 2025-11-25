@@ -17,6 +17,25 @@
 				padding: 1em;
 				margin: 1em auto 0 auto;
 			}
+
+			label
+			{
+				display: inline-block;
+				width: 10em;
+				float: left;
+			}
+
+			input[type="number"]
+			{
+				width: 3em;
+			}
+
+			button
+			{
+				display: inline-block;
+				width: 10em;
+				float: right;
+			}
 		</style>
 
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -45,13 +64,14 @@
 	</head>
 	<body>
 		<div class="panel">
-			Width: <input type="number" id="txtWidth" value="100" />
+			<label for="txtWidth">Width:</label><input type="number" id="txtWidth" value="100" />
 			<br />
-			Height: <input type="number" id="txtHeight" value="100" />
+			<label for="txtHeight">Height:</label><input type="number" id="txtHeight" value="100" />
 			<br />
-			Code: <textarea cols="100" rows="10" id="txtCode"></textarea>
+			<label for="txtCode">Code:</label><textarea cols="100" rows="10" id="txtCode"></textarea>
 			<br />
 			<button id="btnPreview">Preview</button>
+			<br />
 		</div>
 
 		<div class="panel">
