@@ -1,2 +1,14 @@
-# svg_maker
-A simple SVG Preview Tool using jQuery.
+# SVG Maker (TBA)
+This tool uses jQuery to help preview the contents of an SVG markup. CSS is mostly visual and does not affect functionality.
+
+## HTML
+- `txtWidth`: input tag with type `number`.
+- `txtHeight`: input tag with type `number`.
+- `txtCode`: textarea tag.
+- `btnPreview`: button tag.
+- `svgPreview`: SVG tag.
+
+## JavaScript
+- `xxx()`: Runs when page is loaded, and when `btnPreview` is clicked.
+  - Uses the values of `txtWidth` and `txtHeight` to determine the width and height of `svgPreview`.
+  - Uses the valus of `txtCode` to determine the XML markup of `svgPreview`.
