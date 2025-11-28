@@ -6,9 +6,11 @@ This tool uses jQuery to help preview the contents of an SVG markup. CSS is most
 - `txtHeight`: input tag with type `number`.
 - `txtCode`: textarea tag.
 - `btnPreview`: button tag.
-- `svgPreview`: SVG tag.
+- `svgResult`: SVG tag.
 
 ## JavaScript
-- `xxx()`: Runs when page is loaded, and when `btnPreview` is clicked.
+- `renderSvg()`: Runs when page is loaded, and when `btnPreview` is clicked.
   - Uses the values of `txtWidth` and `txtHeight` to determine the width and height of `svgPreview`.
-  - Uses the valus of `txtCode` to determine the XML markup of `svgPreview`.
+  - Uses the valus of `txtCode` to determine the XML markup of `svgResult`.
+
+ *Note*: Replacing the XML content of an SVG is not straightforward. First, we have to replace the HTML content with itself, *then* replace the content.
