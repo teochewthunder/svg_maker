@@ -46,11 +46,10 @@
 				var width = $("#txtWidth").val();
 				var height = $("#txtHeight").val();
 				var content = $("#txtCode").val();
-				console.log(content)
 
 				$("#svgResult").attr("width", width);
 				$("#svgResult").attr("height", height);
-				$("#svgResult").html($("#svgResult").html("")).html(content);
+				$("#svgResult").html($("#svgResult").html()).html(content);
 			}
 
 			$(document).ready(function() {
@@ -75,7 +74,7 @@
 		</div>
 
 		<div class="panel">
-			<svg id="svgResult" style="outline: 1px solid rgb(0, 0, 0)" />
+			<svg id="svgResult" style="outline: 1px solid rgb(0, 0, 0)" xmlns="http://www.w3.org/2000/svg" />
 		</div>
 	</body>
 </html>
