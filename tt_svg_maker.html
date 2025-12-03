@@ -52,6 +52,38 @@
 				$("#svgResult").html($("#svgResult").html()).html(content);
 			}
 
+			function getDefaultNode(nodeType)
+			{
+				switch (nodeType)
+				{
+					case "line": return '<line x1="0" y1="0" x2="300" y2="200" stroke="rgb(250,100,0)" stroke-width="2" />';
+					case "rect": return '<rect width="200" height="100" x="10" y="10" rx="20" ry="20" fill="rgb(250,100,0)" />';
+					case "ellipse": return '<ellipse rx="100" ry="50" cx="120" cy="80" fill="rgb(250,100,0)" stroke="rgb(250,100,0)" stroke-width="3" />';					
+					case "circle": return '<circle r="45" cx="50" cy="50" fill="rgb(250,100,0)" />';
+					case "path": return '<path d="M150 5 L75 200 L225 200 Z" fill="none" stroke="rgb(250,100,0)" stroke-width="3" />';
+					case "text": return '<text x="5" y="15" fill="rgb(250,100,0)">abc 123</text>';
+					default: return "";
+				}
+			}
+
+			function addNode(nodeType)
+			{
+				var node = getDefaultNode(nodeType);
+				var content = $("#txtCode").val();
+				var append = $("#cbAppend").prop("checked");
+
+				if (append) 
+				{
+					$("#txtCode").val(content + node);
+				} 
+				else
+				{
+					$("#txtCode").val(node + content);
+				} 
+
+				renderSVG();
+			}
+
 			$(document).ready(function() {
 				renderSVG();
 
@@ -69,6 +101,16 @@
 			<br />
 			<label for="txtCode">Code:</label><textarea cols="100" rows="10" id="txtCode"></textarea>
 			<br />
+			<label for="cbAppend">Append?</label><input type="checkbox" id="cbAppend" />
+			<br />
+			<button onClick="addNode('line')">Add Line</button>
+			<button onClick="addNode('rect')">Add Rect</button>
+			<button onClick="addNode('ellipse')">Add Ellipse</button>
+			<button onClick="addNode('circle')">Add Circle</button>
+			<button onClick="addNode('path')">Add Path</button>
+			<button onClick="addNode('text')">Add Text</button>
+			<br />
+			<hr />
 			<button id="btnPreview">Preview</button>
 			<br />
 		</div>
