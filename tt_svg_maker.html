@@ -43,13 +43,28 @@
 		<script>
 			function renderSVG()
 			{
-				var width = $("#txtWidth").val();
-				var height = $("#txtHeight").val();
+				var width = parseInt($("#txtWidth").val());
+				var height = parseInt($("#txtHeight").val());
+				var grid = parseInt($("#txtGrid").val());
 				var content = $("#txtCode").val();
+				var gridLines = "";
+
+				if (grid > 0) 
+				{
+					for (var i = grid; i < width; i += grid)
+					{
+						gridLines += '<line x1="' + i + '" y1="0" x2="' + i + '" y2="' + height + '" stroke="rgb(200,200,200)" stroke-width="1" />';
+					}
+
+					for (var i = grid; i <= height; i += grid)
+					{
+						gridLines += '<line x1="0" y1="' + i + '" x2="' + width + '" y2="' + i + '" stroke="rgb(200,200,200)" stroke-width="1" />';
+					}
+				}
 
 				$("#svgResult").attr("width", width);
 				$("#svgResult").attr("height", height);
-				$("#svgResult").html($("#svgResult").html()).html(content);
+				$("#svgResult").html($("#svgResult").html()).html(gridLines + content);
 			}
 
 			function getDefaultNode(nodeType)
@@ -95,9 +110,11 @@
 	</head>
 	<body>
 		<div class="panel">
-			<label for="txtWidth">Width:</label><input type="number" id="txtWidth" value="100" />
+			<label for="txtWidth">Width:</label><input type="number" id="txtWidth" min="10" value="100" />
 			<br />
-			<label for="txtHeight">Height:</label><input type="number" id="txtHeight" value="100" />
+			<label for="txtHeight">Height:</label><input type="number" id="txtHeight" min="10" value="100" />
+			<br />
+			<label for="txtGrid">Grid:</label><input type="number" id="txtGrid" min="0" value="10" />
 			<br />
 			<label for="txtCode">Code:</label><textarea cols="100" rows="10" id="txtCode"></textarea>
 			<br />
