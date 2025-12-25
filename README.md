@@ -1,4 +1,4 @@
-# SVG Maker (TBA)
+# SVG Maker
 This tool uses jQuery to help preview the contents of an SVG markup. CSS is mostly visual and does not affect functionality.
 
 ## HTML
